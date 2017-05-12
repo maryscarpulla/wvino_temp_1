@@ -1,0 +1,1 @@
+{"name":"WVino-temp-1","repository":"https://github.com/u3804/wvino_temp_1","env":{"CLOUDINARY_CLOUD_NAME":{"required":true},"CLOUDINARY_API_KEY":{"required":true},"CLOUDINARY_API_SECRET":{"required":true},"ROLLBAR_ACCESS_TOKEN":{"required":true}}}
