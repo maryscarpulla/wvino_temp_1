@@ -10,7 +10,8 @@ class BucketListWinesController < ApplicationController
   end
 
   def index
-    @bucket_list_wines = BucketListWine.page(params[:page]).per(10)
+    @q = BucketListWine.ransack(params[:q])
+    @bucket_list_wines = @q.result(:distinct => true).includes(:user, :wine).page(params[:page]).per(10)
 
     render("bucket_list_wines/index.html.erb")
   end
