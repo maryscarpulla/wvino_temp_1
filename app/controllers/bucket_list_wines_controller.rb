@@ -47,8 +47,6 @@ class BucketListWinesController < ApplicationController
 
   def update
     @bucket_list_wine = BucketListWine.find(params[:id])
-
-    @bucket_list_wine.user_id = params[:user_id]
     @bucket_list_wine.wine_id = params[:wine_id]
 
     save_status = @bucket_list_wine.save
