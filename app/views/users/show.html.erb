@@ -20,3 +20,34 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many bucket_list_wines -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Bucket List Wines
+      </li>
+
+      <% @user.bucket_list_wines.each do |bucket_list_wine| %>
+        <li class="list-group-item">
+          <a href="/bucket_list_wines/<%= bucket_list_wine.id %>">
+            <%= bucket_list_wine.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/bucket_list_wines/<%= bucket_list_wine.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/bucket_list_wines/<%= bucket_list_wine.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_bucket_list_wine/<%= bucket_list_wine.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
