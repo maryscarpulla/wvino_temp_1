@@ -17,7 +17,7 @@
       <% @bucket_list_wines.each do |bucket_list_wine| %>
       <tr>
         <td><%= bucket_list_wine.user.email %></td>
-        <td><%= bucket_list_wine.wine_id %></td>
+        <td><%= bucket_list_wine.wine.name %></td>
         <td>
           <a href="/bucket_list_wines/<%= bucket_list_wine.id %>" class="btn btn-primary">Show</a>
           <a href="/bucket_list_wines/<%= bucket_list_wine.id %>/edit" class="btn btn-warning">Edit</a>
