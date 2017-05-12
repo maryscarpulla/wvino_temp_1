@@ -1,6 +1,6 @@
 class WinesController < ApplicationController
   def index
-    @wines = Wine.all
+    @wines = Wine.page(params[:page]).per(10)
 
     render("wines/index.html.erb")
   end
