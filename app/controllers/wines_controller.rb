@@ -1,12 +1,13 @@
 class WinesController < ApplicationController
   def index
     @q = Wine.ransack(params[:q])
-    @wines = @q.result(:distinct => true).includes(:bucket_list_wines).page(params[:page]).per(10)
+    @wines = @q.result(:distinct => true).includes(:bucket_list_wines, :my_wines).page(params[:page]).per(10)
 
     render("wines/index.html.erb")
   end
 
   def show
+    @my_wine = MyWine.new
     @bucket_list_wine = BucketListWine.new
     @wine = Wine.find(params[:id])
 
