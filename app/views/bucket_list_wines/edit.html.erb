@@ -33,7 +33,7 @@
           Wine
         </label>
 
-        <input type="text" id="wine_id" name="wine_id" placeholder="Wine" class="form-control" value="<%= @bucket_list_wine.wine_id %>">
+        <%= select_tag(:wine_id, options_from_collection_for_select(Wine.all, :id, :name, @bucket_list_wine.wine_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
