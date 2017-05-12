@@ -53,3 +53,36 @@
     </ul>
   </div>
 </div>
+
+<!-- A User has many my_wines -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        My Wines
+      </li>
+
+      <% @user.my_wines.each do |my_wine| %>
+        <li class="list-group-item">
+          <a href="/my_wines/<%= my_wine.id %>">
+            <%= my_wine.wine_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/my_wines/<%= my_wine.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <%if current_user == my_wine.user %>
+              <a href="/my_wines/<%= my_wine.id %>/edit" class="btn btn-warning">
+                <i class="fa fa-edit"></i>
+              </a>
+              <a href="/delete_my_wine/<%= my_wine.id %>" class="btn btn-danger" rel="nofollow">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
