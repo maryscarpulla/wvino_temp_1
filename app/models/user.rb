@@ -1,9 +1,6 @@
 class User < ApplicationRecord
   # Direct associations
 
-  has_many   :my_wines,
-             :dependent => :destroy
-
   has_many   :bucket_list_wines,
              :dependent => :destroy
 
