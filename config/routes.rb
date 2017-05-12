@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "bucket_list_wines#index"
   # Routes for the Wine resource:
   # CREATE
   get "/wines/new", :controller => "wines", :action => "new"
