@@ -6,6 +6,7 @@ class WinesController < ApplicationController
   end
 
   def show
+    @bucket_list_wine = BucketListWine.new
     @wine = Wine.find(params[:id])
 
     render("wines/show.html.erb")
