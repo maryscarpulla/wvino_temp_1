@@ -16,8 +16,20 @@
 
       <% @bucket_list_wines.each do |bucket_list_wine| %>
       <tr>
-        <td><%= bucket_list_wine.user.email %></td>
-        <td><%= bucket_list_wine.wine.name %></td>
+        <td>
+          <% if bucket_list_wine.user.present? %>
+            <a href="/users/<%= bucket_list_wine.user.id %>">
+              <%= bucket_list_wine.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if bucket_list_wine.wine.present? %>
+            <a href="/wines/<%= bucket_list_wine.wine.id %>">
+              <%= bucket_list_wine.wine.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/bucket_list_wines/<%= bucket_list_wine.id %>" class="btn btn-primary">Show</a>
           

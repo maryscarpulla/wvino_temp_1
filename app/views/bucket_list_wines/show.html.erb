@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>User</dt>
-      <dd><%= @bucket_list_wine.user_id %></dd>
+      <dd>
+        <% if @bucket_list_wine.user.present? %>
+          <a href="/users/<%= @bucket_list_wine.user_id %>">
+            <%= @bucket_list_wine.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Wine</dt>
-      <dd><%= @bucket_list_wine.wine_id %></dd>
+      <dd>
+        <% if @bucket_list_wine.wine.present? %>
+          <a href="/wines/<%= @bucket_list_wine.wine_id %>">
+            <%= @bucket_list_wine.wine.name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
