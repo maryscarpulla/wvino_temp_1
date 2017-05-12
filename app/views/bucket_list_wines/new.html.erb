@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @bucket_list_wine.errors.any? %>
+  <% @bucket_list_wine.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Bucket List Wine</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_bucket_list_wine" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @bucket_list_wine.user_id %>">
+      </div>
+
+      <!-- Label and input for wine_id -->
+      <div class="form-group">
+        <label for="wine_id" class="control-label">
+          Wine
+        </label>
+
+        <input type="text" id="wine_id" name="wine_id" placeholder="Wine" class="form-control" value="<%= @bucket_list_wine.wine_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Bucket List Wine
+      </button>
+      or
+      <a href="/bucket_list_wines">Cancel</a>
+    </form>
+  </div>
+</div>
