@@ -10,9 +10,10 @@ end
 group :production do
   gem "pg"
   gem "rails_12factor"
+  # Use Puma as the app server
+  gem 'puma', '~> 3.0'
 end
-# Use Puma as the app server
-gem 'puma', '~> 3.0'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
