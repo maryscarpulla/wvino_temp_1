@@ -1,4 +1,4 @@
-class BucketListWine < ApplicationRecord
+class MyWine < ApplicationRecord
   # Direct associations
 
   belongs_to :wine

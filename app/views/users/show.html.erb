@@ -30,20 +30,20 @@
         Bucket List Wines
       </li>
 
-      <% @user.bucket_list_wines.each do |bucket_list_wine| %>
+      <% @user.bucket_list_wines.each do |my_wine| %>
         <li class="list-group-item">
-          <a href="/bucket_list_wines/<%= bucket_list_wine.id %>">
-            <%= bucket_list_wine.user_id %>
+          <a href="/my_wines/<%= my_wine.id %>">
+            <%= my_wine.user_id %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
-            <a href="/bucket_list_wines/<%= bucket_list_wine.id %>" class="btn btn-primary">
+            <a href="/my_wines/<%= my_wine.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
-            <%if current_user == bucket_list_wine.user %>
-              <a href="/bucket_list_wines/<%= bucket_list_wine.id %>/edit" class="btn btn-warning">
+            <%if current_user == my_wine.user %>
+              <a href="/my_wines/<%= my_wine.id %>/edit" class="btn btn-warning">
                 <i class="fa fa-edit"></i>
               </a>
-              <a href="/delete_bucket_list_wine/<%= bucket_list_wine.id %>" class="btn btn-danger" rel="nofollow">
+              <a href="/delete_my_wine/<%= my_wine.id %>" class="btn btn-danger" rel="nofollow">
                 <i class="fa fa-trash-o"></i>
               </a>
             <% end %>
