@@ -33,19 +33,19 @@
         Bucket List Wines
       </li>
 
-      <% @wine.bucket_list_wines.each do |bucket_list_wine| %>
+      <% @wine.bucket_list_wines.each do |my_wine| %>
         <li class="list-group-item">
-          <a href="/bucket_list_wines/<%= bucket_list_wine.id %>">
-            <%= bucket_list_wine.user_id %>
+          <a href="/my_wines/<%= my_wine.id %>">
+            <%= my_wine.user_id %>
           </a>
           <div class="btn-group btn-group-xs pull-right">
-            <a href="/bucket_list_wines/<%= bucket_list_wine.id %>" class="btn btn-primary">
+            <a href="/my_wines/<%= my_wine.id %>" class="btn btn-primary">
               <i class="fa fa-search-plus"></i>
             </a>
-            <a href="/bucket_list_wines/<%= bucket_list_wine.id %>/edit" class="btn btn-warning">
+            <a href="/my_wines/<%= my_wine.id %>/edit" class="btn btn-warning">
               <i class="fa fa-edit"></i>
             </a>
-            <a href="/delete_bucket_list_wine/<%= bucket_list_wine.id %>" class="btn btn-danger" rel="nofollow">
+            <a href="/delete_my_wine/<%= my_wine.id %>" class="btn btn-danger" rel="nofollow">
               <i class="fa fa-trash-o"></i>
             </a>
           </div>
@@ -53,7 +53,7 @@
       <% end %>
 
       <li class="list-group-item">
-        <form action="/create_bucket_list_wine" method="post">
+        <form action="/create_my_wine" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -63,8 +63,16 @@
       <!-- Label and input for wine_id -->
       <input type="hidden" name="wine_id" value="<%= @wine.id %>">
 
+      <!-- Label and input for bucket_list -->
+      <div class="checkbox">
+        <label for="bucket_list">
+          <input type="checkbox" id="bucket_list" name="bucket_list" value="1" <%= "checked" if @my_wine.bucket_list %>>
+          Bucket list
+        </label>
+      </div>
+
       <button class="btn btn-block btn-success">
-        Create Bucket List Wine
+        Create My Wine
       </button>
     </form>
       </li>

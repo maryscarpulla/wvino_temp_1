@@ -1,6 +1,6 @@
 <!-- Validation failure messages -->
-<% if @bucket_list_wine.errors.any? %>
-  <% @bucket_list_wine.errors.full_messages.each do |message| %>
+<% if @my_wine.errors.any? %>
+  <% @my_wine.errors.full_messages.each do |message| %>
     <div class="alert alert-dismissable alert-danger">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <%= message %>
@@ -9,12 +9,12 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Add Bucket List Wine</h3>
+  <h3>Add My Wine</h3>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-    <form action="/create_bucket_list_wine" method="post">
+    <form action="/create_my_wine" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
@@ -27,14 +27,22 @@
           Wine
         </label>
 
-        <%= select_tag(:wine_id, options_from_collection_for_select(Wine.all, :id, :name, @bucket_list_wine.wine_id), :class => "form-control") %>
+        <%= select_tag(:wine_id, options_from_collection_for_select(Wine.all, :id, :name, @my_wine.wine_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for bucket_list -->
+      <div class="checkbox">
+        <label for="bucket_list">
+          <input type="checkbox" id="bucket_list" name="bucket_list" value="1" <%= "checked" if @my_wine.bucket_list %>>
+          Bucket list
+        </label>
       </div>
 
       <button class="btn btn-success">
-        Create Bucket List Wine
+        Create My Wine
       </button>
       or
-      <a href="/bucket_list_wines">Cancel</a>
+      <a href="/my_wines">Cancel</a>
     </form>
   </div>
 </div>
